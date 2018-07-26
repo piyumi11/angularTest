@@ -1,3 +1,4 @@
+import { ArticleComponent, ArticleBase } from './article/article.component';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,10 +9,16 @@ import { Component } from '@angular/core';
   
 export class AppComponent {
   
+  articleOne : ArticleBase;
+  
   constructor() {
-
+    
   }
   
-  ngOnInit() {
+  ngOnInit() {  
+    
+     this.articleOne = { "title" : "Jersey 2 REST web service Hello World Appication." };
+    
   }
+    
 }

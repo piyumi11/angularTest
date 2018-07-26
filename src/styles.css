@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body, html {
+  overflow-x: hidden;
+   height: 100%;
+   margin: 0;
+}
+.article-code {
+	background-color: #104e65;
+	color: #e5e5e5;
+}

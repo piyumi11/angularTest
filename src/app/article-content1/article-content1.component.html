@@ -1,0 +1,106 @@
+<div class="article-content">
+  <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+          	Requirements :
+          	<ul>          	
+          		<li>JDK 1.8</li>
+          		<li>Eclipse IDE</li>
+          		<li>Apache tomcat server 7</li>
+          		<li>Maven</li>
+          	</ul>
+          	<div>
+          		<h4>Step 01 : </h4>
+          		<p>Create a dynamic web project using eclipse IDE.</p>
+          		<img class="col-lg-6" src="/assets/img/articles/create-web-project.png" 
+          		alt="Create Dynamic Web Project" >
+          		
+          		<h4>Step 02 : </h4>
+          		<p>Then convert the created project into maven project. It will create the POM.xml 
+          		    inside the project root directory. 
+					Following maven dependencies should be added to POM.xml to use the jersey. 
+          		</p>
+          		<pre class="article-code"><code >
+     &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.glassfish.jersey.core&lt;/groupId&gt;
+            &lt;artifactId&gt;jersey-server&lt;/artifactId&gt;
+            &lt;version&gt;2.20&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
+            &lt;artifactId&gt;jersey-container-servlet&lt;/artifactId&gt;
+            &lt;version&gt;2.20&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;</code></pre>
+          		<h4>Step 03 : </h4>
+          		<p>Create the service class with REST service methods</p>
+          		<pre class="article-code"><code>
+       		import javax.ws.rs.GET;
+		import javax.ws.rs.Path;
+		import javax.ws.rs.PathParam;
+		import javax.ws.rs.core.Response;
+		
+		@Path("/sayhello")
+		public class HelloWorldService {{ '{' }}
+		
+		    @GET
+		    @Path("/{{ '{' }}name{{ '}' }}")
+		    public Response sayHello(@PathParam("name") String msg) {{ '{' }}
+		        String output = "Hello, " + msg + "!";
+		        return Response.status(200).entity(output).build();
+		    {{ '}' }}						    
+		{{ '}' }}					          				
+          		</code></pre>
+          		<h4>Step 04 : </h4>
+          		<p>Specify the package which reside the service classes implementing
+          		 jersey ResourceConfig class </p>
+          		 <pre class="article-code">
+          		 	<code>
+    import org.glassfish.jersey.server.ResourceConfig;
+
+	public class HelloWorldApplication extends ResourceConfig {{ '{' }}
+	    public HelloWorldApplication() {{ '{' }}
+	        packages("com.example.services");
+	    {{ '}' }}
+	{{ '}' }}	    
+          		 	</code>
+          		 </pre>
+          		 
+          		 <h4>Step 05 : </h4>
+          		 <p>If the project does not have a web.xml file create as below.</p>
+          		 <pre class="article-code"><code>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+	version="3.0"&gt;
+		  &lt;display-name&gt;Web Service Demo&lt;/display-name&gt;
+		    &lt;servlet&gt;
+		        &lt;servlet-name&gt;WebServiceDemo&lt;/servlet-name&gt;
+		        &lt;servlet-class&gt;org.glassfish.jersey.servlet.ServletContainer&lt;/servlet-class&gt;
+		        &lt;init-param&gt;
+		            &lt;param-name&gt;javax.ws.rs.Application&lt;/param-name&gt;
+		            &lt;param-value&gt;com.example.app.HelloWorldApplication&lt;/param-value&gt;
+			     &lt;{{ '!' }} --ResourceConfig class implementation --&gt;
+		        &lt;/init-param&gt;
+		        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+		    &lt;/servlet&gt;
+		    &lt;servlet-mapping&gt;
+		        &lt;servlet-name&gt; WebServiceDemo &lt;/servlet-name&gt;
+		        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+		    &lt;/servlet-mapping&gt;
+	&lt;/web-app&gt;          		 
+          		 </code></pre>
+          		 
+          		 <h4>Step 06 : </h4>
+          		 <p>Create the war file using maven and run on tomcat web container. </p>
+          		 <img class="col-lg-6" src="/assets/img/articles/client-browser.png" 
+          		alt="Create Dynamic Web Project" width="100%" >
+          	</div>
+          
+          </div>
+        </div>
+   </div>
+</div>

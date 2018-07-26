@@ -1,0 +1,41 @@
+.page-header {
+  background-image: url("/assets/img/page-header.jpg");
+  height: 300%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: left;
+  color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.main-content {
+	margin-top: 150px;
+	padding-top: 50px;
+	height: auto; 
+    background: rgba(21, 101, 132, 0.8)
+}
+.card-profile-img {
+	max-width: 100px;
+    margin-top: -70px;
+    margin-bottom: 5px;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.text-xs-center {
+	text-align:center;
+}
+.card-profile {
+	background-color:#156584;
+	color: white;
+}
+.card-header {
+	background-color:#104e65;
+	height: 100px;
+}
+.profile-info{
+	padding-top: 150px;
+    padding-bottom: 100px;
+}

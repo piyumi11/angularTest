@@ -14,9 +14,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#home">Home</a>
             </li>
-            <li class="nav-item">
+           <!--  <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About Me</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -26,37 +26,46 @@
     <section class="page-header" id="home">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 main-content">Welcome !!</div>          
+          <div class="col-lg-9 main-content">
+            <ul >
+                <li *ngIf="articleOne">
+                    <app-article [data]="articleOne"></app-article>
+                    <app-article-content1></app-article-content1>
+                </li>
+            </ul>   
+          </div>  
+          <div class="col-lg-3 profile-info">
+		      <div class="card card-profile">
+		        <div class="card-header"></div>
+		        <div class="card-body text-xs-center">
+		          <img class="card-profile-img" src="../assets/img/profile-pic.jpg">
+		          <h5 class="card-title">Writer</h5>
+		          <p class="mb-4">Piyumi Kaushalya.</p>
+		          <ul class="list-inline social-buttons">
+		              <li class="list-inline-item">
+		                <a href="#">
+		                  <i class="fa fa-twitter"></i>
+		                </a>
+		              </li>
+		              <li class="list-inline-item">
+		                <a href="#">
+		                  <i class="fa fa-facebook"></i>
+		                </a>
+		              </li>
+		              <li class="list-inline-item">
+		                <a href="#">
+		                  <i class="fa fa-linkedin"></i>
+		                </a>
+		              </li>
+		            </ul><!-- 
+		          <button class="btn btn-outline-primary btn-sm">
+		            <span class="icon icon-add-user"></span> Follow
+		          </button> -->
+		        </div>
+		      </div>
+		    </div>              
         </div>        
       </div>
     </section>
 
-    <!-- About me -->
-    <section id="about" class="about-me">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="col-md-4 offset-md-2">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>    
-          </div>
-        </div>
-      </div>
-    </section>
 </body>
