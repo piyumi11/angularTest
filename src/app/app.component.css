@@ -1,9 +1,6 @@
 .page-header {
   background-image: url("/assets/img/page-header.jpg");
-  height: 300%; 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat-y;
   text-align: left;
   color: white;
   -webkit-background-size: cover;
