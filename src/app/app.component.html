@@ -26,13 +26,8 @@
     <section class="page-header" id="home">
       <div class="container">
         <div class="row">
-          <div class="col-lg-9 main-content">
-            <ul >
-                <li *ngIf="articleOne">
-                    <app-article [data]="articleOne"></app-article>
-                    <app-article-content1></app-article-content1>
-                </li>
-            </ul>   
+          <div class="col-lg-9 main-content">          	
+          	<router-outlet></router-outlet>
           </div>  
           <div class="col-lg-3 profile-info">
 		      <div class="card card-profile">
@@ -63,9 +58,18 @@
 		          </button> -->
 		        </div>
 		      </div>
+		      <div class="card card-profile">	
+		      	<div class="card-body card-profile">
+		      		<ul class="list-group">
+					  <a routerLink = "jersey_example" >Jersey REST Example</a>
+					  <a routerLink = "test_example" >Test Example</a>
+					</ul>
+		      	</div>		      		      	
+		      </div>
 		    </div>              
-        </div>        
+        </div>       
       </div>
     </section>
+    
 
 </body>

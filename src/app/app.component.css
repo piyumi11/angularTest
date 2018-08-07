@@ -36,3 +36,14 @@
 	padding-top: 150px;
     padding-bottom: 100px;
 }
+.list-group a{
+	color: white;
+}
+.list-group a:hover {
+    text-decoration: none;
+    color: #104e65;
+}
+.list-group a:active {
+    text-decoration: none;
+    color: #104e65;
+}
