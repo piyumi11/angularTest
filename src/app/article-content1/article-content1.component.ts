@@ -14,8 +14,8 @@ export class ArticleContent1Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.articleOne = { "title" : "Jersey 2 REST web service Hello World Application." };
-  }
-  
+    this.articleOne = { 'title' : 'Jersey 2 REST web service Hello World Application.',
+                        'lastUpdated' : 'July 26 2018' };
+  }  
 
 }

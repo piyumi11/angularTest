@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { escape } from 'querystring';
 
 @Component({
@@ -8,6 +8,9 @@ import { escape } from 'querystring';
 })
 export class SendEmailComponent implements OnInit {
 
+  @Input()
+  articleTitle : string;
+  
   constructor() { }
 
   ngOnInit() {
@@ -17,7 +20,8 @@ export class SendEmailComponent implements OnInit {
     let link = 'mailto:piyumik11@gmail.com' +
              '?cc=piyumi.rajapaksha@auxenta.com' +
              '&subject=User Feedback on piyumi11.github.io' +
-             '&body=Was this article helpful?' + response;
+             '&body=' + this.articleTitle +
+             '%0D%0A' + ' Was this article helpful?' + response;
 
     window.location.href = link;
   }

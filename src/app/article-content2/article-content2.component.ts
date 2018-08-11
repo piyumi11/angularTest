@@ -14,7 +14,8 @@ export class ArticleContent2Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.articleTwo = { "title" : "Test Example" };
+    this.articleTwo = { 'title' : 'Spring Framework : Spring MVC and Spring Boot.',
+                         'lastUpdated' : 'August 11 2018' };
   }
 
 }

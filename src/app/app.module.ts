@@ -7,6 +7,7 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleContent1Component } from './article-content1/article-content1.component';
 import { ArticleContent2Component } from './article-content2/article-content2.component';
 import { SendEmailComponent } from './send-email/send-email.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SendEmailComponent } from './send-email/send-email.component';
     ArticleComponent,
     ArticleContent1Component,
     ArticleContent2Component,
-    SendEmailComponent
+    SendEmailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,14 @@ import { SendEmailComponent } from './send-email/send-email.component';
           {
             path: 'test_example',
             component: ArticleContent2Component
+         },
+          {
+            path: '',
+            component: HomeComponent
+         },
+          {
+            path: 'home',
+            component: HomeComponent
          }
       ])
   ],

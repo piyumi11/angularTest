@@ -22,5 +22,6 @@ export class ArticleComponent implements OnInit {
 }
 
 export interface ArticleBase {
-    title: string;
+    title: string,
+    lastUpdated: string
 }
