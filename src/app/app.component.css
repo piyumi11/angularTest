@@ -47,3 +47,11 @@
     text-decoration: none;
     color: #104e65;
 }
+.social-buttons a{
+	color: black;	
+}
+.social-buttons button, .github-button  {
+	border-color: black;
+	background-color: #156584;
+	text-decoration: none;
+}

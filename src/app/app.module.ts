@@ -26,7 +26,7 @@ import { HomeComponent } from './home/home.component';
             component: ArticleContent1Component
          },
           {
-            path: 'test_example',
+            path: 'spring_mvc_boot',
             component: ArticleContent2Component
          },
           {
