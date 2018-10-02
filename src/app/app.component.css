@@ -1,6 +1,7 @@
 .page-header {
-  background-image: url("/assets/img/page-header.jpg");
-  background-repeat: repeat-y;
+  /* background-image: url("/assets/img/page-header.jpg"); */
+  /* background-repeat: repeat-y; */
+  background-color:#104e65;
   text-align: left;
   color: white;
   -webkit-background-size: cover;
@@ -35,4 +36,23 @@
 .profile-info{
 	padding-top: 150px;
     padding-bottom: 100px;
+}
+.list-group a{
+	color: white;
+}
+.list-group a:hover {
+    text-decoration: none;
+    color: #104e65;
+}
+.list-group a:active {
+    text-decoration: none;
+    color: #104e65;
+}
+.social-buttons a{
+	color: black;	
+}
+.social-buttons button, .github-button  {
+	border-color: black;
+	background-color: #156584;
+	text-decoration: none;
 }

@@ -1,3 +1,4 @@
+import { ArticleBase } from '../article/article.component';
 import { Component, OnInit } from '@angular/core';
 import { escape } from 'querystring';
 
@@ -8,18 +9,13 @@ import { escape } from 'querystring';
 })
 export class ArticleContent1Component implements OnInit {
 
+  articleOne : ArticleBase;
+  
   constructor() { }
 
   ngOnInit() {
-  }
-  
-  public sendMail() {
-    var link = "mailto:piyumi11@gmail.com"
-             "?cc=piyumi.rajapaksha@auxenta.com"
-             "&subject=" + escape("This is my subject")
-             "&body=" + escape("Test")
-
-    window.location.href = link;
-  }
+    this.articleOne = { 'title' : 'Jersey 2 REST web service Hello World Application.',
+                        'lastUpdated' : 'July 26 2018' };
+  }  
 
 }

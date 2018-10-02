@@ -9,15 +9,11 @@ import { Component } from '@angular/core';
   
 export class AppComponent {
   
-  articleOne : ArticleBase;
-  
   constructor() {
     
   }
   
   ngOnInit() {  
-    
-     this.articleOne = { "title" : "Jersey 2 REST web service Hello World Appication." };
     
   }
     

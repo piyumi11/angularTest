@@ -1,0 +1,76 @@
+<app-article [data]="articleTwo"></app-article>
+<div class="article-content">
+  <div class="container">
+     <div class="row">
+       <div class="col-lg-12">
+       		<h5>What is Spring and Why we use it?</h5>
+       		<p>Spring is a java framework which use to implement loosely coupled and easily testable,
+       		 extendable applications using the feature Dependency Injection.</p>
+       		 
+       		 <pre class="article-code"><code >
+        /**
+	 * Core Java Example
+	 * */
+	public class HelloWorld {{ '{' }}
+		
+		private Person person = new Person();
+		
+		public String sayHello() {{ '{' }}			
+			return "Hello " + person.getName();
+		{{ '}' }}	
+	{{ '}' }}
+       		 </code>
+       		 </pre>
+       		 <pre class="article-code"><code >
+        import org.springframework.beans.factory.annotation.Autowired;
+      	 /**
+	 * Spring Example using DI
+	 * */
+	public class HelloSpring {{ '{' }}
+	
+		@Autowired
+		private Person person;
+		
+		public String sayHello() {{ '{' }}		
+			return "Hello " + person.getName();
+		{{ '}' }}
+	{{ '}' }}
+	</code></pre>
+	<pre class="article-code"><code >
+	import org.springframework.stereotype.Component;
+	/**
+	 * Spring Example using DI - component class
+	 * */
+	@Component
+	public class Person {{ '{' }}
+	
+		private String name;
+		private Integer age;
+		
+		//getters and setters		
+	{{ '}' }}
+       		 </code></pre>
+       		 <h5>What is Spring MVC?</h5>
+       		 <p>Spring MVC framework use to develop web application with decoupling model, view and controller.</p>
+       		 <h5>What is Spring Boot?</h5>
+       		 <p>Spring application needs list of configuration files. i.e. dispatcher servlet, component scan, 
+       		 view resolver, resource mappings etc. If the spring application use hibernate, 
+       		 it requires to configure entity manager, transaction manager, data source in separate configuration files. </p>
+       		 <p>Spring Boot auto configure the application by looking at available framework 
+       		 on class path and existing configurations without above mentioned configuration files. </p>
+       		 
+       		 <p>Spring boot starters are convenient dependencies which built with basic spring application dependencies 
+       		 like spring web, hibernate validator, jpa, Jackson databind, log4j, tomcat embedded servlet container. For instance, using spring boot starter 
+       		 web dependency, we can develop production ready web application with restfull web services without specifying each 
+       		 dependency above and compatible versions.</p>
+       		 <pre class="article-code"><code >
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+       		 </code></pre>
+       </div>
+     </div>
+  </div>
+</div>
+<app-send-email [articleTitle]="articleTwo.title"></app-send-email>
