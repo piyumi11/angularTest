@@ -58,16 +58,17 @@
        		 it requires to configure entity manager, transaction manager, data source in separate configuration files. </p>
        		 <p>Spring Boot auto configure the application by looking at available framework 
        		 on class path and existing configurations without above mentioned configuration files. </p>
+       		 
+       		 <p>Spring boot starters are convenient dependencies which built with basic spring application dependencies 
+       		 like spring web, hibernate validator, jpa, Jackson databind, log4j, tomcat embedded servlet container. For instance, using spring boot starter 
+       		 web dependency, we can develop production ready web application with restfull web services without specifying each 
+       		 dependency above and compatible versions.</p>
        		 <pre class="article-code"><code >
 	&lt;dependency&gt;
 		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
 		&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
 	&lt;/dependency&gt;
        		 </code></pre>
-       		 <p>Spring boot starters are convenient dependencies which built with basic spring application dependencies 
-       		 like spring web, hibernate validator, jpa, Jackson databind, log4j. For instance, using spring boot starter 
-       		 web dependency, we can develop web application with restfull web services without specifying each 
-       		 dependency above and compatible versions.</p>
        </div>
      </div>
   </div>
