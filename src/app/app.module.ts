@@ -8,6 +8,7 @@ import { ArticleContent1Component } from './article-content1/article-content1.co
 import { ArticleContent2Component } from './article-content2/article-content2.component';
 import { SendEmailComponent } from './send-email/send-email.component';
 import { HomeComponent } from './home/home.component';
+import { ArticleContent3Component } from './article-content3/article-content3.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,16 @@ import { HomeComponent } from './home/home.component';
     ArticleContent1Component,
     ArticleContent2Component,
     SendEmailComponent,
-    HomeComponent
+    HomeComponent,
+    ArticleContent3Component
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+         {
+            path: 'introduction_to_docker',
+            component: ArticleContent3Component
+         },
          {
             path: 'jersey_example',
             component: ArticleContent1Component
