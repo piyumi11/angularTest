@@ -16,6 +16,7 @@ cp -r "D:\dialog\projectname\dist\projectname\assets" "D:/TestGit/piyumi11.githu
 echo "**** At Deployment Project Directory ****"
 cd "D:/TestGit/piyumi11.github.io"
 git status
+git add --all
 
 
 read -p "Press enter to continue"
