@@ -1,16 +1,23 @@
-
-echo test1
+#!/bin/bash
+echo **** github page building process ****
 
 # source project
 
 git status
 git branch
 git add --all
-git commit -m "%1"
+git commit -m $1
+git push
 
-# copy build
+# copy build files
 
-copy /y "D:\dialog\projectname\dist\projectname" "D:\TestGit\piyumi11.github.io"
+find "D:/dialog/projectname/dist/projectname" -maxdepth 1 -type f | xargs cp -t "D:/TestGit/piyumi11.github.io"
 
 # deployment project
+
+cd "D:/TestGit/piyumi11.github.io"
+git status
+
+
+read -p "Press enter to continue"
 
