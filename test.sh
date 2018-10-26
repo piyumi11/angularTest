@@ -1,8 +1,7 @@
 #!/bin/bash
 echo **** github page building process ****
 
-# source project
-
+echo **** At Source Project Directory ****
 git status
 git branch
 git add --all
@@ -13,8 +12,7 @@ git push
 
 find "D:/dialog/projectname/dist/projectname" -maxdepth 1 -type f | xargs cp -t "D:/TestGit/piyumi11.github.io"
 
-# deployment project
-
+echo **** At Source Project Directory ****
 cd "D:/TestGit/piyumi11.github.io"
 git status
 
