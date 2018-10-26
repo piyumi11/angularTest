@@ -11,8 +11,9 @@ git push
 # copy build files
 
 find "D:/dialog/projectname/dist/projectname" -maxdepth 1 -type f | xargs cp -t "D:/TestGit/piyumi11.github.io"
+cp -r "D:\dialog\projectname\dist\projectname\assets" "D:/TestGit/piyumi11.github.io"
 
-echo "**** At Source Project Directory ****"
+echo "**** At Deployment Project Directory ****"
 cd "D:/TestGit/piyumi11.github.io"
 git status
 
