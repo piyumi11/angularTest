@@ -17,6 +17,7 @@ echo "**** At Deployment Project Directory ****"
 cd "D:/TestGit/piyumi11.github.io"
 git status
 git add --all
+git status
 
 
 read -p "Press enter to continue"
