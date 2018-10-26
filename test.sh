@@ -1,5 +1,5 @@
 #!/bin/bash
-echo **** github page building process ****
+Echo **** github page building process ****
 
 echo **** At Source Project Directory ****
 git status
