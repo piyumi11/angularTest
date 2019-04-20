@@ -13,7 +13,7 @@ export class ArticleContent3Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.articleThree = { 'title' : 'Introduction to Containerization and Docker',
+    this.articleThree = { 'title' : 'Containerization and Docker',
                          'lastUpdated' : 'October 02 2018' };
   }
 

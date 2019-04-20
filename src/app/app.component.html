@@ -1,75 +1,17 @@
-
-  <body id="page-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Piyumi Kaushalya</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" routerLink = "home">Home</a>
-            </li>
-           <!--  <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About Me</a>
-            </li> -->
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Home = Main Content -->
-    <section class="page-header" id="home">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-9 main-content">          	
-          	<router-outlet></router-outlet>
-          </div>  
-          <div class="col-lg-3 profile-info">
-		      <div class="card card-profile">
-		        <div class="card-header"></div>
-		        <div class="card-body text-xs-center">
-		          <img class="card-profile-img" src="../assets/img/profile-pic.jpg">
-		          <h5 class="card-title">Writer</h5>
-		          <p class="mb-4">Piyumi Kaushalya.</p>
-		          <a class="github-button" href="https://github.com/piyumi11" data-show-count="true" data-size="large">
-					Follow
-				  </a>
-		          <ul class="list-inline social-buttons">
-		              <li class="list-inline-item">
-		                <a href="#">
-		                  <i class="fab fa-twitter"></i>
-		                </a>
-		              </li>
-		              <li class="list-inline-item">
-		                <a href="#">
-		                  <i class="fab fa-facebook-f"></i>
-		                </a>
-		              </li>
-		              <li class="list-inline-item">
-		                <a href="#">
-		                  <i class="fab fa-linkedin-in"></i>
-		                </a>
-		              </li>	         
-		            </ul>		            
-		        </div>
-		      </div>
-		      <div class="card card-profile">	
-		      	<div class="card-body card-profile">
-		      		<ul class="list-group">
-					  <a routerLink = "jersey_example" ><i class="fas fa-caret-right fa-xs"></i> Jersey REST Example</a>
-					  <a routerLink = "spring_mvc_boot" ><i class="fas fa-caret-right fa-xs"></i> Spring : MVC & Boot</a>
-					  <a routerLink = "introduction_to_docker" ><i class="fas fa-caret-right fa-xs"></i> Introduction to Docker</a>
-					</ul>
-		      	</div>		      		      	
-		      </div>
-		    </div>              
-        </div>       
-      </div>
-    </section>
-    
-
-</body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-11 main-content">
+			<router-outlet></router-outlet>
+		</div>
+		<div class="col-lg-1 icon-bar">
+		  <a routerLink="home" data-toggle="tooltip" data-placement="left" title="Home Page"><i class="fas fa-home"></i></a> 
+		   <a href="https://github.com/piyumi11" target="_blank" data-toggle="tooltip" data-placement="left" title="github">
+		  	<i class="fab fa-github-alt"></i>
+		  </a>
+		  <a href="#" data-toggle="tooltip" data-placement="left" title="twitter"><i class="fab fa-twitter"></i></a> 
+		  <a href="#" data-toggle="tooltip" data-placement="left" title="facebook"><i class="fab fa-facebook-f"></i></a> 
+		  <a href="#" data-toggle="tooltip" data-placement="left" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
+		  <a href="#" data-toggle="tooltip" data-placement="left" title="instagram"><i class="fab fa-instagram"></i></a>	
+		</div>
+	</div>
+</div>

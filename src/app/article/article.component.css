@@ -1,8 +1,9 @@
 .article-title {
 	color: black;
 	padding: 8px 8px 0px 8px;
+	text-shadow: 1px 1px 3px #c0c0c0;
 }
 .article-date{
-	color: black;
+	color: #959595;
 	padding-left: 8px;
 }

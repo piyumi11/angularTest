@@ -3,8 +3,15 @@ body, html {
   overflow-x: hidden;
    height: 100%;
    margin: 0;
+   font-family: Georgia, serif;
 }
 .article-code {
-	background-color: #104e65;
-	color: #e5e5e5;
+	background-color: #e5e5e5;
+	color: #000000;
+}
+.article-icon {
+	color: black;
+}
+.article-content{
+	color: black;	
 }

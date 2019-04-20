@@ -1,9 +1,23 @@
 .card-home {
-	background-color:#104e65;	
+	background-color:#f3f3f3;	
+}
+.card-home:hover{	
+	background-color:#dbdbdb;
 }
 .card-border-home {	
-	border: 0px;
+	border: 0px;   
 }
 .card-font-home a{
-	color:white;
+	color:black;
+	text-shadow: 2px 2px 3px #c0c0c0;
+}
+.card-font-home a:hover{
+	color:black;
+	text-decoration: none;
+}
+.card-deck .card {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	padding-bottom: 0px !important;
+	padding-top: 0px !important;
 }

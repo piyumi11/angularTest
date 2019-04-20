@@ -9,6 +9,7 @@ import { ArticleContent2Component } from './article-content2/article-content2.co
 import { SendEmailComponent } from './send-email/send-email.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleContent3Component } from './article-content3/article-content3.component';
+import { ArticleContent4Component } from './article-content4/article-content4.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArticleContent3Component } from './article-content3/article-content3.co
     ArticleContent2Component,
     SendEmailComponent,
     HomeComponent,
-    ArticleContent3Component
+    ArticleContent3Component,
+    ArticleContent4Component
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,10 @@ import { ArticleContent3Component } from './article-content3/article-content3.co
           {
             path: 'spring_mvc_boot',
             component: ArticleContent2Component
+         },
+         {
+            path: 'lamp_and_codeigniter',
+            component: ArticleContent4Component
          },
           {
             path: '',
