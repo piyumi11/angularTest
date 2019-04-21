@@ -11,16 +11,56 @@
        </div>
        <div class="col-lg-12">          	
       		<h4>Step 01 : </h4>
-      		<p>Install LAMP: LAMP is free open source web stack use to host web applications. </p>
+      		<p>Install LAMP: LAMP is free open source web stack use to host web applications. Follow the following steps to 
+      		install LAMP stack in Linux Environment. Following commands tried on Ubuntu 18.04(LTS).</p>
+      		
       		<h4>Step 02 : </h4>
-      		<p>Install configure <a href="https://www.codeigniter.com/">CodeIgniter</a> framework for LAMP to start the development.
-      		Download or clone the github application into the application folder inside the CodeIgniter folder structure which 
-      		configured inside the Apache.</p>
-      		<div>
-       		Find the github repository : <a href="https://github.com/piyumi11/PhpExample" target="_blank"> 
-       			<i class="fas fa-download article-icon"></i>
-       		</a> </div>      
-<!--        		need to add more details later for this article -->		
+      		<p>Install apache http server.</p>
+      		<pre class="article-code"><code >
+      		sudo apt install apache2 
+      		</code></pre>
+      		
+      		<h4>Step 03 : </h4>
+      		<p>Install mysql server</p>
+      		<pre class="article-code"><code >
+      		sudo apt install mysql-server
+      		</code></pre>
+      		
+      		<h4>Step 04 : </h4>
+      		<p>Install PHP 7.2, apache support and mySql support.</p>
+      		<pre class="article-code"><code >
+      		sudo apt install php7.2 libapache2-mod-php7.2 php-mysql
+      		</code></pre>
+      		
+			<h4>Step 05 : </h4>
+			<p>Login to mysql shell and create a user, database for the application.this password should be different to root user password. </p>
+			<pre class="article-code"><code >
+			sudo mysql -u root
+			
+			CREATE DATABASE webdata;
+			GRANT ALL ON webdata.* TO 'webuser' IDENTIFIED BY 'password';			
+			
+			CREATE TABLE stud (
+			roll_no INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+			name VARCHAR(30),
+			created DATETIME DEFAULT NULL,
+			modified DATETIME DEFAULT NULL
+			);
+			</code></pre>
+			
+			<h4>Step 06 : </h4>
+			<p>Download the <a href="https://www.codeigniter.com/" target="_blank">CodeIgniter</a> framework zip, extract it and copy all the files
+			 into var/www/html directory.</p>
+			
+			<h4>Step 07 : </h4>
+			<p>download the <a href="https://github.com/piyumi11/PhpExample" target="_blank">phpExmple</a> and copy into
+			 var/www/html/codeigniter/application directory.</p>
+			
+			<h4>Step 08 : </h4>
+			<p>See the output and check how php routes works in this application.</p>
+			<img src="/assets/img/articles/php-example.png" 
+          		alt="Php example output in browser"  >
+			      				
     	</div>
     </div>   
   </div>
