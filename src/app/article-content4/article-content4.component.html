@@ -3,16 +3,14 @@
   <div class="container">
      <div class="row">
        <div class="col-lg-12">
-       		<h4>Pre-requisite:</h4>
-       		<ul>          	
-          		<li>LAMP: Linux Apache MySQL PHP</li>
-          		<li>PHP framework CodeIngiter</li>
-          	</ul>       		
+       		<p>This example use LAMP stack and CodeIngiter php framework to develop a small web-site. LAMP : Linux, Apache, MySQL, PHP
+       		is a free open source web stack use to host web applications. CodeIgniter is a free php framework with lot of developer 
+       		convenient features to develop web sites with high performance. Follow the steps provided below to build this website. 
+       		 </p>	
        </div>
        <div class="col-lg-12">          	
       		<h4>Step 01 : </h4>
-      		<p>Install LAMP: LAMP is free open source web stack use to host web applications. Follow the following steps to 
-      		install LAMP stack in Linux Environment. Following commands tried on Ubuntu 18.04(LTS).</p>
+      		<p>First have a Linux environment. Following commands tried on Ubuntu 18.04(LTS).</p>
       		
       		<h4>Step 02 : </h4>
       		<p>Install apache http server.</p>
@@ -35,17 +33,17 @@
 			<h4>Step 05 : </h4>
 			<p>Login to mysql shell and create a user, database for the application.this password should be different to root user password. </p>
 			<pre class="article-code"><code >
-			sudo mysql -u root
-			
-			CREATE DATABASE webdata;
-			GRANT ALL ON webdata.* TO 'webuser' IDENTIFIED BY 'password';			
-			
-			CREATE TABLE stud (
-			roll_no INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			name VARCHAR(30),
-			created DATETIME DEFAULT NULL,
-			modified DATETIME DEFAULT NULL
-			);
+		sudo mysql -u root
+		
+		CREATE DATABASE webdata;
+		GRANT ALL ON webdata.* TO 'webuser' IDENTIFIED BY 'password';			
+		
+		CREATE TABLE stud (
+		roll_no INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(30),
+		created DATETIME DEFAULT NULL,
+		modified DATETIME DEFAULT NULL
+		);
 			</code></pre>
 			
 			<h4>Step 06 : </h4>
