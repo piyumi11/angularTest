@@ -13,15 +13,22 @@
     <link href="assets/vendor/font-awesome/css/all.min.css" rel="stylesheet" >
 </head>
 <body>
+  <div class="loading-img"></div>
   <app-root></app-root>
    <!-- Bootstrap core JavaScript -->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/jquery/jquery-migrate-1.4.1.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Git hub buttons -->
 	<!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
+	<script>
+	$(window).load(function() {
+		$(".loading-img").fadeOut("slow");
+	});
+	</script>
 	
 </body>
 </html>

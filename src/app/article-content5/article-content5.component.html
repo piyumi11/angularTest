@@ -1,0 +1,61 @@
+<app-article [data]="articleThree"></app-article>
+<div class="article-content">
+  <div class="container">
+     <div class="row">
+       <div class="col-lg-12">
+       		This example used :
+          	<ul>         
+          		<li>PHP 7.2.15-0</li>
+				<li>ubuntu 0.18.04.2</li>
+				<li>MySQL server 5.7.25-0</li>
+				<li>Apache 2.4.29</li>
+				<li>CodeIgniter</li>
+          	</ul>
+       		<p>
+       		Find the github code exmple in <a href="https://github.com/piyumi11/StudentApplication" target="_blank">here</a>.
+       		Git commit <a href="https://github.com/piyumi11/StudentApplication/commit/48710fc49e800b587b2f713f545fcca763ea2939" target="_blank">
+       		add login implmentation</a> contains the complete code.</p>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-lg-12">
+       		<h4>Step 01 : </h4>
+          	<p>Create the database table to insert users. </p>
+          	<pre class="article-code">
+          	<code>
+			CREATE TABLE users (
+			    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+			    username VARCHAR(50) NOT NULL UNIQUE,
+			    password VARCHAR(255) NOT NULL,
+			    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+			);
+     		</code></pre>
+       </div>
+    </div>   
+    <div class="row">
+       <div class="col-lg-12">
+       		<h4>Step 02 : </h4>
+          	<p>Create the controller class : Account_controller.php to process the login, signin and logout functions.
+          	This example use <strong>password_hash()</strong> one way PHP hashing function to create strong password hash within
+          	signin route. This applies a salt to password, hence two users have same password this function create different password hashes.</p>
+          	<p>When login, use <strong>password_verify()</strong> PHP method to compare user given password and the password in database table.</p>
+          	<p>Logout method unset the all session variables and destroy the session.</p>
+       </div>
+   	</div>
+   	<div class="row">
+       <div class="col-lg-12">
+       		<h4>Step 03 : </h4>
+          	<p><strong>Login_form.php</strong> and <strong>Signin_form.php</strong> contains the HTML forms.</p>
+       </div>
+   	</div>
+   	<div class="row">
+       <div class="col-lg-12">
+       		<h4>Step 04 : </h4>
+          	<p><strong>header.php</strong> file is common for all HTML pages. This contains the links to sigin, login and logout.
+          	Logout link and logged user name display only user has already logged in to the session else display the login link.</p>
+          	<img src="/assets/img/articles/header.png" alt="Header Page after loggedin" width="100%" >
+       </div>
+   	</div>
+  </div>
+</div>
+<app-send-email [articleTitle]="articleThree.title"></app-send-email>

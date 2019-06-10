@@ -10,6 +10,7 @@ import { SendEmailComponent } from './send-email/send-email.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleContent3Component } from './article-content3/article-content3.component';
 import { ArticleContent4Component } from './article-content4/article-content4.component';
+import { ArticleContent5Component } from './article-content5/article-content5.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ArticleContent4Component } from './article-content4/article-content4.co
     SendEmailComponent,
     HomeComponent,
     ArticleContent3Component,
-    ArticleContent4Component
+    ArticleContent4Component,
+    ArticleContent5Component
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,10 @@ import { ArticleContent4Component } from './article-content4/article-content4.co
          {
             path: 'lamp_and_codeigniter',
             component: ArticleContent4Component
+         },
+         {
+            path: 'php_login_example',
+            component: ArticleContent5Component
          },
           {
             path: '',
