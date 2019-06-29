@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ArticleContent3Component } from './article-content3/article-content3.component';
 import { ArticleContent4Component } from './article-content4/article-content4.component';
 import { ArticleContent5Component } from './article-content5/article-content5.component';
+import { ArticleContent6Component } from './article-content6/article-content6.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ArticleContent5Component } from './article-content5/article-content5.co
     HomeComponent,
     ArticleContent3Component,
     ArticleContent4Component,
-    ArticleContent5Component
+    ArticleContent5Component,
+    ArticleContent6Component
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,10 @@ import { ArticleContent5Component } from './article-content5/article-content5.co
          {
             path: 'php_login_example',
             component: ArticleContent5Component
+         },
+         {
+            path: 'design_patterns_java',
+            component: ArticleContent6Component
          },
           {
             path: '',

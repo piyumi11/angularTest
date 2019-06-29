@@ -1,0 +1,46 @@
+<app-article [data]="articleThree"></app-article>
+<div class="article-content">
+  <div class="container">
+  	<div class="row">
+       <div class="col-lg-12">
+        <p>"Design patterns are descriptions of communicating objects and classes that are customized to solve a
+		general design problem in a particular context."
+		Reference - Design Patterns: Elements of Reusable Object-Oriented
+		Software [Aside: This classic 1994 book popularized design patterns. Four authors (Erich Gamma, Richard
+		Helm, Ralph Johnson, and John Vlissides) wrote this book and for this reason it became known as the
+		"Gang of Four" (GoF) book.]</p>
+       </div>
+    </div>
+    <div class="row">
+    	<div class="col-lg-12">
+	    	<p>Mainly all design patterns can divide into 3 types:</p>
+	    	<ol>
+	    		<li><h4>Creational patterns</h4></li>
+	    			<ul>
+	    				<li>Singleton pattern</li>
+	    				<li>Factory pattern</li>
+	    				<li>Abstract Factory pattern</li>
+	    				<li>Prototype pattern</li>
+	    			</ul>
+	    		<li><h4>Structural patterns</h4></li>
+	    			<ul>
+	    				<li>Composite pattern</li>
+	    				<li>Decorator pattern</li>
+	    				<li>Proxy pattern</li>
+	    				<li>Facade pattern</li>
+	    			</ul>
+	    		<li><h4>Behavioral patterns</h4></li>
+	    			<ul>
+	    				<li>Observer pattern</li> 
+	    				<a href="https://github.com/piyumi11/JavaBasics/tree/master/src/designpattern/behavioural/observer" target="_blank">Github code example</a>
+	    				<li>State pattern</li>
+	    				<a href="https://github.com/piyumi11/JavaBasics/tree/master/src/designpattern/behavioural/state" target="_blank">Github code example</a>
+	    				<li>Strategy pattern</li>
+	    				<a href="https://github.com/piyumi11/JavaBasics/tree/master/src/designpattern/behavioural/strategy" target="_blank">Github code example</a>
+	    			</ul>
+	    	</ol>
+    	</div>
+    </div>
+  </div>
+</div>
+<app-send-email [articleTitle]="articleThree.title"></app-send-email>
