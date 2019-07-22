@@ -1,0 +1,232 @@
+<app-article [data]="articleSeven"></app-article>
+<div class="article-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<p>UML was developed by Grady Booch, Ivar Jacobson and James
+					Rumbaugh (The Three Amigos) during 1994-1995. Latest version 2.5.1
+					released in December 2017 by Object Management Group (OMG). UML is
+					a standard object oriented documentation models for any software
+					system. 2.5 version written to increase the clarity and to remove
+					the redundancy.</p>
+					<p>Click on each topics to expand the details of each section.</p>
+			</div>
+		</div>
+		<div class="accordion" id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingTwo">
+					<h2 class="mb-0">
+						<button class="btn btn-link app-btn-color collapsed" type="button"
+							data-toggle="collapse" data-target="#collapseTwo"
+							aria-expanded="false" aria-controls="collapseTwo">Three
+							types of UML building blocks</button>
+					</h2>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionExample">
+					<div class="card-body">
+						<ol>
+							<li><h4>Things</h4></li>
+							<ul>
+								<li>Structural : Class, Object, Interface, Collaboration,
+									Use case, Actor, Component, Node, Deployment</li>
+								<li>Behavioral : State machine, Activity diagram,
+									Interaction diagrams</li>
+								<li>Grouping : Package</li>
+								<li>Annotations : Annotation</li>
+							</ul>
+							<li><h4>Relationships</h4></li>
+							<ul>
+								<li>Association : Connects 2 object and defines how many objects are associated with.</li>
+								<li>Dependency : Relation depends on each objects.</li>
+								<li>Generalization : Inheritance between objects. sub class and parent class relation.</li>
+								<li>Realization : Relation with interface to implement it's function.</li>
+								<li>Reflection : Subtype of association. represents the relation of instances of same class.</li>
+								<li>Direction : Association from one to another flows for one direction only.</li>
+								<li>Composition : Not a UML association.Binary whole part association.Sub type of aggregation.</li>
+								<li>Aggregation : Sub type of association.Whole part, even part remain after whole deleted.</li>
+								<img src="/assets/img/articles/article7/relationships.png" alt="object" width="50%" >								
+							</ul>
+							<li><h4>Diagrams</h4></li>
+							<p>Three types of diagrams will explain in next section.</p>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+						<button class="btn btn-link app-btn-color collapsed" type="button" data-toggle="collapse"
+							data-target="#collapseOne" aria-expanded="true"
+							aria-controls="collapseOne">Three types of diagrams</button>
+					</h2>
+				</div>
+				<div id="collapseOne" class="collapse"
+					aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<ol>
+							<li><h4>Structure Diagrams</h4>
+								<p>Represent the static view of the system.Describes the
+									objects in the system.</p></li>
+							<ul>
+								<li>Class</li>
+								<li>Component</li>
+								<li>Object</li>
+								<li>Composite</li>
+								<li>Deployment</li>
+								<li>Package</li>
+								<li>Profile</li>
+							</ul>
+							<li><h4>Behavior Diagrams</h4></li>
+							<p>Represent the dynamic functioning of the system.</p>
+							<ul>
+								<li>Activity</li>
+								<li>Use case</li>
+								<li>State Machine</li>
+							</ul>
+							<li><h4>Interaction Diagrams</h4></li>
+							<p>Subset of behavioral diagrams. Represents the data
+								flow/interaction between use cases/entities.</p>
+							<ul>
+								<li>Sequence</li>
+								<li>Communication</li>
+								<li>Interaction</li>
+								<li>Timing</li>
+							</ul>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingThree">
+					<h2 class="mb-0">
+						<button class="btn btn-link app-btn-color collapsed" type="button"
+							data-toggle="collapse" data-target="#collapseThree"
+							aria-expanded="false" aria-controls="collapseThree">
+							Structural Diagrams</button>
+					</h2>
+				</div>
+				<div id="collapseThree" class="collapse"
+					aria-labelledby="headingThree" data-parent="#accordionExample">
+					<div class="card-body">
+					<ol>
+						<li><h4>Class diagram</h4></li>						
+						<p>Class must have class name, attributes, and operations. Class name should be start with capital letter, bold( italic for abstract )
+						, and centered text in first rectangle. Attributes adding after class name. Public, private, protected and package visibility
+						 has +, -, #, ~ sings. Derived attributes are which can computed from another. ex. age from date of birth.</p>
+						 <p>Class diagram use in different stages of software development life cycle for conceptual, specification and development perspectives.</p>
+						 <img src="/assets/img/articles/article7/class.png" alt="class" width="15%" >
+						 
+						 <li><h4>Object diagram</h4></li>
+						 <p>Class diagram represents abstract view, but object diagram describes the instance of a class and use to analyse the behaviour of a class.</p>
+						 <p>Use for forward/reverse engineering of systems, analyse the offline/online systems.</p>
+						 <img src="/assets/img/articles/article7/object.png" alt="object" width="50%" >				
+						 
+						 <li><h4>Component diagram</h4></li>
+						 <p>Model the subsystems of a system.</p>
+						 <img src="/assets/img/articles/article7/component.png" alt="object" width="50%" >
+						 
+						 <li><h4>Deployment diagram</h4></li>
+						 <p>Model the software deployment design on hardware system.</p>
+						 <img src="/assets/img/articles/article7/deployment.png" alt="object" width="50%" >			 
+						 
+					</ol>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingFour">
+					<h2 class="mb-0">
+						<button class="btn btn-link app-btn-color collapsed" type="button"
+							data-toggle="collapse" data-target="#collapseFour"
+							aria-expanded="false" aria-controls="collapseFour">
+							Behaviour Diagrams</button>
+					</h2>
+				</div>
+				<div id="collapseFour" class="collapse"
+					aria-labelledby="headingFour" data-parent="#accordionExample">
+					<div class="card-body">
+						<ol>
+							<li><h4>Use case diagram</h4></li>
+							 <p>Use to capture the functionality, dynamic live behaviour and the requirements of a system. Consist with use cases, actors who responsible for 
+							 invoke the functions, external thing/person interact with the system and annotations. Use case represent a distinct functionality.</p>
+							 <img src="/assets/img/articles/article7/use_case.png" alt="object" width="25%" >
+							 
+							 <li><h4>State machine/chart/transition diagram</h4></li>
+							 <p>Model the state of each object, package, and entire system and how system interact with the external world. Two types : behavioral and 
+							 protocol state machines.</p>
+							 <p>When state carts model a state of live system with WAIT concept, Flow carts model the data flow of a system with controls
+							 without using the WAIT concept.</p>
+							 <img src="/assets/img/articles/article7/state_machine.png" alt="object" width="20%" >
+							 
+							 <li><h4>Activity diagram</h4></li>
+							 <p>Describes the execution flow of the system Or the flow cart of the activities between entities. Use activity, 
+							 activity partitions, fork and join nodes, pins to drow the diagram. </p>
+							 <img src="/assets/img/articles/article7/activity.png" alt="object" width="25%" >
+						 </ol>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingFive">
+					<h2 class="mb-0">
+						<button class="btn btn-link app-btn-color collapsed" type="button"
+							data-toggle="collapse" data-target="#collapseFive"
+							aria-expanded="false" aria-controls="collapseFive">
+							Interaction Diagrams</button>
+					</h2>
+				</div>
+				<div id="collapseFive" class="collapse"
+					aria-labelledby="headingFive" data-parent="#accordionExample">
+					<div class="card-body">
+					Describes how the message passing and life-line between entities to form up the activities of the system.
+					Life line has a name (optional), type, selector (optional). Messages are divided as synchronous, asynchronous, return,
+					object creation, object destruction, found, lost messages. State invariants and constrains use to show the change of a 
+					object state after a message, event, operation within object instance's life time for this diagrams. Operators use
+					show how operands are executes. Operations types are Opt (option), Alt (alternative), Loop, Break, Par (parallel), Ref (reference).
+						<ol>
+							<li><h4>Sequence diagram</h4></li>
+							<p>Shows interaction of messages between life-lines.</p>
+							
+							<li><h4>Collaboration diagram</h4></li>
+							<p>Shows structural aspects with life-lines.</p>
+							
+							<li><h4>Timing diagram</h4></li>
+							<p>Shows message interaction between instances.</p>
+						 </ol>
+						 <img src="/assets/img/articles/article7/interaction.png" alt="object" width="75%" >
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingSix">
+					<h2 class="mb-0">
+						<button class="btn btn-link app-btn-color collapsed" type="button"
+							data-toggle="collapse" data-target="#collapseSix"
+							aria-expanded="false" aria-controls="collapseSix">
+							UML tools</button>
+					</h2>
+				</div>
+				<div id="collapseSix" class="collapse"
+					aria-labelledby="headingSix" data-parent="#accordionExample">
+					<div class="card-body">
+						<ul>
+							<li>Eddraw</li>
+							<li>StartUML</li>
+							<li>Umbrello</li>
+							<li>UML designer </li>
+							<li>Altova</li>
+							<li>Umple</li>
+							<li>Visual Paradigm</li>
+							<li>WhitestarUML</li>
+							<li>Draw.IO</li>
+							<li>GenMyModel</li>
+							<li>Lucidchart</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-send-email [articleTitle]="articleSeven.title"></app-send-email>

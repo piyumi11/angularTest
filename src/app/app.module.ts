@@ -4,27 +4,29 @@ import { RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
-import { ArticleContent1Component } from './article-content1/article-content1.component';
-import { ArticleContent2Component } from './article-content2/article-content2.component';
 import { SendEmailComponent } from './send-email/send-email.component';
 import { HomeComponent } from './home/home.component';
+import { ArticleContent1Component } from './article-content1/article-content1.component';
+import { ArticleContent2Component } from './article-content2/article-content2.component';
 import { ArticleContent3Component } from './article-content3/article-content3.component';
 import { ArticleContent4Component } from './article-content4/article-content4.component';
 import { ArticleContent5Component } from './article-content5/article-content5.component';
 import { ArticleContent6Component } from './article-content6/article-content6.component';
+import { ArticleContent7Component } from './article-content7/article-content7.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
+    SendEmailComponent,
+    HomeComponent,    
     ArticleContent1Component,
     ArticleContent2Component,
-    SendEmailComponent,
-    HomeComponent,
     ArticleContent3Component,
     ArticleContent4Component,
     ArticleContent5Component,
-    ArticleContent6Component
+    ArticleContent6Component,
+    ArticleContent7Component
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,10 @@ import { ArticleContent6Component } from './article-content6/article-content6.co
          {
             path: 'design_patterns_java',
             component: ArticleContent6Component
+         },
+         {
+            path: 'uml',
+            component: ArticleContent7Component
          },
           {
             path: '',
