@@ -13,6 +13,7 @@ import { ArticleContent4Component } from './article-content4/article-content4.co
 import { ArticleContent5Component } from './article-content5/article-content5.component';
 import { ArticleContent6Component } from './article-content6/article-content6.component';
 import { ArticleContent7Component } from './article-content7/article-content7.component';
+import { ArticleContent8Component } from './article-content8/article-content8.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ArticleContent7Component } from './article-content7/article-content7.co
     ArticleContent4Component,
     ArticleContent5Component,
     ArticleContent6Component,
-    ArticleContent7Component
+    ArticleContent7Component,
+    ArticleContent8Component
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,10 @@ import { ArticleContent7Component } from './article-content7/article-content7.co
          {
             path: 'uml',
             component: ArticleContent7Component
+         },
+         {
+            path: 'codeigniter_and_php_session',
+            component: ArticleContent8Component
          },
           {
             path: '',

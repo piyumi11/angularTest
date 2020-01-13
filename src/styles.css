@@ -8,6 +8,7 @@ body, html {
 .article-code {
 	background-color: #e5e5e5;
 	color: #000000;
+	text-align: left;
 }
 .article-icon {
 	color: black;

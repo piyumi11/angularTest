@@ -1,0 +1,103 @@
+<app-article [data]="articleEight"></app-article>
+<div class="article-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<p>Session variables are usefull to store global variables to access throughout the application lifecycle
+				opening and closing. Session variables store stored in server and can access in more than one web page request.
+				For example session can use to store logged in user details for a web application.</p>
+				<p>CodeIgniter framework has session library to manage PHP global array $_SESSION.
+				</p>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				Initialize the session in controller when using CodeIgniter.
+				<pre class="article-code">
+		          	<code>
+					$this->load->library('session');  // initialize the class
+					// after that use '$this->session' to access loaded session.
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				Set a value to session array.
+				<pre class="article-code">
+		          	<code>
+					$_SESSION['item'] = 'item_value';     // using $_SESSION array
+					$this->session->set_userdata('item', 'item_value');   //using session class setter
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				Get a value from session array.
+				<pre class="article-code">
+		          	<code>
+					$_SESSION['item'];        // using $_SESSION array
+					$this->session->userdata('item');  //using session class getter
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				Check value is exist in session array
+				<pre class="article-code">
+		          	<code>
+					isset($_SESSION['item']);        // using $_SESSION array
+					$this->session->has_userdata('item');  //using session class method 'has_userdata'
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				Remove data in session array.
+				<pre class="article-code">
+		          	<code>
+					unset($_SESSION['item']);       
+					$this->session->unset_userdata('item');
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				Destroy the session. This delets all flash and temp data.
+				<pre class="article-code">
+		          	<code>
+					$this->session->sess_destroy();
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				<h5>Flash Data</h5>
+				<p>Specific session data type which are only available for next request.</p>
+				<pre class="article-code">
+		          	<code>
+					$this->session->mark_as_flash('item');   // set flash data
+					$this->session->flashdata('item');       // read flash data
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				<h5>Temp Data</h5>
+				<p>Specific session data type which has expiration time.</p>
+				<pre class="article-code">
+		          	<code>
+					$this->session->set_tempdata('item', 'value', 300);  // add temp data with 300 seconds expiry time
+		     		</code>
+     			</pre>
+			</div>
+		</div>
+	</div>
+</div>
+<app-send-email [articleTitle]="articleEight.title"></app-send-email>
