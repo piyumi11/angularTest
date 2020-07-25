@@ -1,0 +1,67 @@
+<app-article [data]="articleNine"></app-article>
+<div class="article-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				TCPDF is a php library that can use to create pdf documents using
+				html. Integration of TCPDF to CodeIgniter has few simple steps
+				compare to other PDF libraries. Following example relate to CodeIgniter php application <a href="https://github.com/piyumi11/StudentApplication" target="_blank">StudentApplication</a>
+				in github.
+				<div>
+
+					<h4>Step 01 :</h4>
+					<p>Download TCPDF library from http://www.tcpdf.org/.</p>
+					<h4>Step 02 :</h4>
+					<p>Create a folder 'tcpdf' inside the 'application/helpers'
+						directory of CodeIgniter application and copy all TCPDF library
+						files into that.</p>
+					<img src="/assets/img/articles/tcpdf_folder.PNG"
+						alt="directory of tcpdf library" width="20%">
+						<h4>Step 03 :</h4>
+					<p>Create 'pdf_helper.php' file inside 'application/helpers' folder and import TCPDF as below code.</p>
+					<pre class="article-code"><code>
+				&lt;?php 		
+					function tcpdf()
+					{{ '{' }} 
+					    require_once('tcpdf/tcpdf.php');
+					{{ '}' }}
+				?&gt;
+          		 </code></pre>
+          		 <h4>Step 04 :</h4>
+					<p>This application create PDF document to display data in a html table. Add a function as below to a php controller class. Read the comments
+					 inside the file to understand the TCPDF functions. </p>	
+					<pre class="article-code"><code>
+				public function pdf_report() {{ '{' }} 
+				
+				          $this->load->helper('pdf_helper'); 	// import pdf helper 
+				          tcpdf();  		// execute helper function
+				          
+				          // retrive the student details from database 
+				          $query = $this->db->get("stud");
+				          $data['records'] = $query->result();
+				          $data['page_title'] = "All students list";  
+				          
+				          $this->load->view('pdf_report', $data);  // view file pdf_report.php
+			          
+      				{{ '}' }} 
+          		 </code></pre>
+						<h4>Step 05 :</h4>
+					<p>	Create a 'pdf_report.php' inside the 'view' folder of the CodeIgniter app and add the code inside 
+					<a href="https://github.com/piyumi11/StudentApplication/blob/master/application/views/pdf_report.php" target="_blank">this</a> file.
+					This code convert the data return by controller into pdf file using the library TCPDF.	Read <a href="https://tcpdf.org/docs/" target="_blank">
+					the documentation </a> to understand the TCPDF functions inside 'pdf_report.php' file. 
+					<a href="https://github.com/piyumi11/StudentApplication/commit/cffefb614d558df29cb3156203146d0fb49ca0c7" target="_blank">Git commit</a> 
+					has the complete code relate to this article.</p>
+					
+					<h4>Step 06 :</h4>
+					<p>'StudentApplication' has a button to create the pdf file as below. Click on the button to generate the pdf file.</p>
+					<pre class="article-code"><code>
+						<a class ='app-icon' href = "<?php echo base_url();?>index.php/stud/pdf"  target="blank"><i class="fas fa-file-pdf"></i></a>
+					</code></pre>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-send-email [articleTitle]="articleNine.title"></app-send-email>

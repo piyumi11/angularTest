@@ -14,6 +14,7 @@ import { ArticleContent5Component } from './article-content5/article-content5.co
 import { ArticleContent6Component } from './article-content6/article-content6.component';
 import { ArticleContent7Component } from './article-content7/article-content7.component';
 import { ArticleContent8Component } from './article-content8/article-content8.component';
+import { ArticleContent9Component } from './article-content9/article-content9.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ArticleContent8Component } from './article-content8/article-content8.co
     ArticleContent5Component,
     ArticleContent6Component,
     ArticleContent7Component,
-    ArticleContent8Component
+    ArticleContent8Component,
+    ArticleContent9Component
   ],
   imports: [
     BrowserModule,
@@ -64,6 +66,10 @@ import { ArticleContent8Component } from './article-content8/article-content8.co
          {
             path: 'codeigniter_and_php_session',
             component: ArticleContent8Component
+         },
+         {
+            path: 'pdf_library_for_codeigniter',
+            component: ArticleContent9Component
          },
           {
             path: '',
