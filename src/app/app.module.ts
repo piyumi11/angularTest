@@ -15,6 +15,8 @@ import { ArticleContent6Component } from './article-content6/article-content6.co
 import { ArticleContent7Component } from './article-content7/article-content7.component';
 import { ArticleContent8Component } from './article-content8/article-content8.component';
 import { ArticleContent9Component } from './article-content9/article-content9.component';
+import { ArticleContent10Component } from './article-content10/article-content10.component';
+import { ArticleContent11Component } from './article-content11/article-content11.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ArticleContent9Component } from './article-content9/article-content9.co
     ArticleContent6Component,
     ArticleContent7Component,
     ArticleContent8Component,
-    ArticleContent9Component
+    ArticleContent9Component,
+    ArticleContent10Component,
+    ArticleContent11Component
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,14 @@ import { ArticleContent9Component } from './article-content9/article-content9.co
          {
             path: 'pdf_library_for_codeigniter',
             component: ArticleContent9Component
+         },         
+         {
+            path: 'color_conversion_in_python',
+            component: ArticleContent10Component
+         },
+         {
+            path: 'opengl_clock',
+            component: ArticleContent11Component
          },
           {
             path: '',

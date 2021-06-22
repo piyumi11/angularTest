@@ -1,0 +1,132 @@
+<app-article [data]="articleTen"></app-article>
+<div class="article-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<p>Color images can represent in combination of Red, Green, Blue pixels. Other than RGB color model, Images can 
+				represent in CMY (Cyan, Magenta, Yellow) model and HSI (Hue, Staturation, Intensity) model also.
+				This article explains how RGB image can convert to CMY and HSI models in python.</p>
+				
+				<p>Following examples implemented and interpreted using python 3.7.6, opencv 4.5.1, matplotlib 3.1.3
+				numpy 1.18.1 module versions.</p>
+				<p><strong>"Digital Image Processing", Rafael C. Gonzalez &   Richard E. Woods,  Addison-Wesley</strong> book contains 
+				the equation between RGB model and CMY and HSI model conversions. Read the chapter <strong>6.2 Color Models</strong>
+				 to find more information about color models.</p>
+				<div>
+					<h4>RGB to CMY</h4>
+					<p>Following is the code used on RGB image for converting into CMY model</p>
+					<pre class="article-code"><code>
+				
+			## color model conversion with python
+
+			import cv2 as cv
+			from matplotlib import pyplot as plt
+			import math
+			import numpy as np
+			
+			
+			## RGB into CMY
+			def rgb_to_cmy(r, g, b):
+			    if (r, g, b) == (0, 0, 0):
+			        # black
+			        return 0, 0, 0
+			
+			    # rgb [0,255] -> cmy [0,1]
+			    c = 1 - r / 255
+			    m = 1 - g / 255
+			    y = 1 - b / 255
+			
+			    # rescale 
+			    return c * 100, m * 100, y * 100 
+			    
+			path = 'path_to/rgb_image.jpg'
+
+			## color image read
+			img = cv.imread(path)
+			plt.imshow(img), plt.title('rgb'), plt.show()
+			
+			## result image init
+			outimg = np.zeros_like(img)
+			
+			## rgb[0,255] -> cmy[0,1]
+			x = 0
+			for row in img:    
+			    y = 0
+			    for color in row:        
+			        result = rgb_to_cmy(color[0], color[1], color[2])      
+			        outimg[x,y] = result
+			        y = y + 1        
+			    x = x + 1
+			
+			plt.imshow(outimg), plt.title('cmy'), plt.show()   
+				
+          		 </code></pre>
+          		 <p>Following is the image results got after executing the above code example. You can compare your results with this.</p>
+          		 <img src="/assets/img/articles/rgb_image.PNG" 
+          		alt="rgb image" width="30%" >
+          		<img src="/assets/img/articles/cmy_image.PNG" 
+          		alt="cmy image" width="30%" >
+          		
+          		 <h4>RGB to HSI</h4>
+					<p>Following is the code used on RGB image for converting into HSI model </p>
+						
+					<pre class="article-code"><code>
+		## convert RGB in 0,255 to hsi 0,1
+		def rgb_to_hsi(rr, gg, bb):
+		    
+		    if rr == gg == bb:
+		        return 0,0,0
+		    
+		    r = rr / 255
+		    g = gg / 255
+		    b = bb / 255
+		    
+		    diff_rg = r-g
+		    diff_rb = r-b
+		    diff_gb = g-b
+		    
+		    h_radians = ((diff_rg+diff_rb)*0.5)/(math.sqrt(diff_rg*diff_rg+diff_rb*diff_gb))
+		    h_degrees = math.degrees(math.acos(h_radians))    
+		    
+		    if b <= g :
+		        h = h_degrees/360
+		    else:
+		        h = (360-h_degrees)/360
+		        
+		    s = 1 - (3*min(r,g,b)/(r+g+b))
+		    
+		    i = (r+g+b)/3
+		    
+		    return h*100, s*100, i*100
+		    
+		path = 'path_to/rgb_image.jpg'
+		
+		## color image read
+	    img = cv.imread(path)
+	    plt.imshow(img), plt.title('rgb'), plt.show()
+	
+	    ## result image init
+	    outimg = np.zeros_like(img)
+	
+	    ## rgb to cmy
+	    x = 0
+	    for row in img:    
+	        y = 0
+	        for color in row:        
+	            result = rgb_to_hsi(color[0], color[1], color[2])
+	            outimg[x,y] = result
+	            y = y + 1        
+	        x = x + 1
+	
+	    plt.imshow(outimg), plt.title('hsi'), plt.show()
+          		 </code></pre>
+					<img src="/assets/img/articles/rgb_image.PNG" 
+          		alt="rgb image" width="30%" >
+          		<img src="/assets/img/articles/hsi_image.PNG" 
+          		alt="hsi image" width="30%" >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<app-send-email [articleTitle]="articleTen.title"></app-send-email>
