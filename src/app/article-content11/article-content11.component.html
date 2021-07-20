@@ -6,184 +6,298 @@
 				<p><a href="https://www.opengl.org" target="_blank">OpenGL</a> is  a cross-language, cross-platform application 
 				programming interface (API) for rendering 2D and 3D vector graphics.</p>
 				
-				<p>This article explains clock implementation using OpenGL libraries.</p>
+				<p>Following example implemented and executed with g++ 8.1.0, freeglut 3.2.1, glew 2.1.0 libraries. 
+				Code contains the OpenGL libraries imported to implement the clock display here. </p>
+				
+				<img src="/assets/img/articles/clock.gif"  alt="OpenGL clock" width="40%" >
+				<img src="/assets/img/articles/gl_coordinate_system"  alt="coordinate system" width="40%" >
+				
+				<p>Follow the steps below to understand the code written in c++. In c++ we create .cpp file formats of code
+				and compile and build to create the executable ( .exe) file. Then we can execute it simply double click on executable 
+				or typing its name on command prompt to see the result.</p>
 				
 				<div>					
-					<pre class="article-code"><code>
+				<h4>Step 01 : </h4>
+				<p>First import the <strong>glut</strong> and <strong>gl</strong> libraries to create a window with specific color, width, height.
+				And <strong>glut</strong> library allows to add a title to that window.</p>
+				<pre class="article-code"><code>
 
-	#include&lt;stdlib.h&gt;
 	#include&lt;gl\glut.h&gt;
-	#includegl\GLU.h&gt;
+	#include&lt;gl\GL.h&gt;	
+
+
+	 void display()
+	{{ '{' }}
+	    glClear(GL_COLOR_BUFFER_BIT);
+	
+		/* Clock implementation goes here */
+	
+	    glutSwapBuffers();
+	{{ '}' }}
+	
+	
+	 int main(int agrs, char **args) {{ '{' }}
+	
+		glutInit(&agrs, args);
+		glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+		glutInitWindowSize(650, 650);
+	    	glutInitWindowPosition(0, 0);
+	    	glutCreateWindow("OpenGL Clock ");
+		glClearColor(0, 0, 0, 0);
+	
+		glutDisplayFunc(display);
+	
+		glutMainLoop();
+		return 0;
+	{{ '}' }}          		 
+	</code></pre>
+					
+				<h4>Step 02 : </h4>
+				<p>Following code has the method draw the circle with specific radius value which less than the 1
+				with center at origin(0,0).
+				Call this method inside <strong>display</strong> method before <strong>glutSwapBuffers</strong>. 
+				<strong>math</strong> library has implementations for cos and sin to find the points on circle using its radius.</p>
+				<pre class="article-code"><code>
+
+		#include&lt;gl\glut.h&gt;
+		#include&lt;gl\GL.h&gt;
+		#include&lt;math.h&gt;
+		
+		float r = 0.9; //radius of the circle
+		
+		void DrawCircle(float cx, float cy, float r, int num_segments) {{ '{' }}
+	
+		    glBegin(GL_LINE_LOOP);
+		    glColor3f(1.0,1.0,1.0);
+		
+		    for (int ii = 0; ii &lt; num_segments; ii++)   {{ '{' }}
+		
+		        float angle = 2.0f * 3.1415926f * float(ii) / float(num_segments);
+		        float x = r * cosf(angle);
+		        float y = r * sinf(angle);
+		        glVertex2f(x + cx, y + cy);
+		    {{ '}' }}
+		    glEnd();
+		{{ '}' }}
+	
+	
+		 void display()
+		{{ '{' }}
+		    glClear(GL_COLOR_BUFFER_BIT);
+		
+			// clock
+			DrawCircle(0, 0, r, 200);
+		
+		    glutSwapBuffers();
+		{{ '}' }}
+          		 </code></pre>
+					
+				
+				<h4>Step 03 : </h4>
+				<p>Next has the minute and hour marks drawing methods on the circle with specific length and color. These 2 
+				functions also need to call after circle drawing method inside <strong>display</strong> method.</p>
+				<pre class="article-code"><code>
+
+	#include&lt;gl\glut.h&gt;
 	#include&lt;gl\GL.h&gt;
 	#include&lt;math.h&gt;
-	#include&lt;stdio.h&gt;
-	#include&lt;windows.h&gt;
+	
+	float degree_6 = 2.0f * 3.1415926f / float(60); // value for degree 6 = 360/60
+	float r = 0.9; //radius of the circle	
+	
+	void drawHourMarks(float cx, float cy, float r) {{ '{' }}
+	
+		glBegin(GL_LINES);
+		glColor3f(0.0,0.0,1.0);
+		for (int ii = 0; ii &lt; 12; ii++)   {{ '{' }}
+	
+			float angle = degree_6 * float(ii) * 5 ;
+			float x = 0.8 * cosf(angle);
+			float y = 0.8 * sinf(angle);
+			glVertex2d(cx + x, cy + y);
+			x = r * cosf(angle);
+			y = r * sinf(angle);
+			glVertex2d(cx + x, cy + y);
+		{{ '}' }}
+	
+		glEnd();
+	{{ '}' }}
+	
+	void drawMinuteMarks(float cx, float cy) {{ '{' }}
+	
+		glBegin(GL_LINES);
+		glColor3f(1.0,1.0,1.0);
+	
+		for (int ii = 0; ii &lt; 60; ii++)   {{ '{' }}
+	
+			float angle = degree_6 * float(ii);
+			float x = 0.85 * cosf(angle);
+			float y = 0.85 * sinf(angle);
+			glVertex2d(cx + x, cy + y);
+			x = 0.9 * cosf(angle);
+			y = 0.9 * sinf(angle);
+			glVertex2d(cx + x, cy + y);
+		{{ '}' }}
+	
+		glEnd();
+	{{ '}' }}
+	
+	 void display()
+	{{ '{' }}
+	    glClear(GL_COLOR_BUFFER_BIT);
+	
+		// clock
+		DrawCircle(0, 0, r, 200);
+		drawMinuteMarks(0, 0);
+		drawHourMarks(0, 0, r);	
+	
+	    glutSwapBuffers();
+	{{ '}' }}
+          		 </code></pre>
+				<h4>Step 04 : </h4>
+				<p>This step has functions to draw the triangle shape minute and hour hand with 0 angle to x axis.
+				Two hands can draw with 2 lengths and 2 colors to distinct each other. </p>
+				<pre class="article-code"><code>
+
+	#include&lt;gl\glut.h&gt;
+	#include&lt;gl\GL.h&gt;
+	#include&lt;math.h&gt;
+	
+	// add these 2 variables on top to initialize the angle
+	float mm = 0.0; // minutes angle
+	float hh = 0.0; // hours angle
+
+	void drawHourHand(int ii) {{ '{' }}
+	
+		glBegin(GL_TRIANGLES);
+		glColor3f(0,0,1); // Blue
+	
+		float angle = degree_6 * float(ii) * 5;
+		float angle1 = angle;
+		float x1 = 0.7 * cosf(angle1);
+		float y1 = 0.7 * sinf(angle1);
+		glVertex2f( x1, -y1 );
+	
+		float angle2 = angle + 90;
+		float x2 = 0.03 * cosf(angle2);
+		float y2 = 0.03 * sinf(angle2);
+		glVertex2f( x2, -y2 );
+	
+		float angle3 = angle - 90;
+		float x3 = 0.03 * cosf(angle3);
+		float y3 = 0.03 * sinf(angle3);
+		glVertex2f( x3, -y3 );
+	
+		glEnd();
+	
+	{{ '}' }}
+	
+	void drawMinuteHand(int ii) {{ '{' }}
+	
+		glBegin(GL_TRIANGLES);
+		glColor3f(0,1,1); //Green
+	
+		float angle = degree_6 * float(ii);
+		float angle1 = angle;
+		float x1 = 0.8 * cosf(angle1);
+		float y1 = 0.8 * sinf(angle1);
+		glVertex2f( x1, -y1 );
+	
+		float angle2 = angle + 90;
+		float x2 = 0.03 * cosf(angle2);
+		float y2 = 0.03 * sinf(angle2);
+		glVertex2f( x2, -y2 );
+	
+		float angle3 = angle - 90;
+		float x3 = 0.03 * cosf(angle3);
+		float y3 = 0.03 * sinf(angle3);
+		glVertex2f( x3, -y3 );
+	
+		glEnd();
+	
+	{{ '}' }}
+	
+	 void display()
+	{{ '{' }}
+	    glClear(GL_COLOR_BUFFER_BIT);
+	
+		// clock
+		DrawCircle(0, 0, r, 200);
+		drawMinuteMarks(0, 0);
+		drawHourMarks(0, 0, r);
+	
+		// hand moving
+		drawMinuteHand(mm); // Minutes hand
+		drawHourHand(hh); // Hours hand
+	
+	    glutSwapBuffers();
+	{{ '}' }}
+
+          		 </code></pre>
+				<h4>Step 06 : </h4>
+				<p>Now we going to implement the moving of each hands based on time. <strong>glutTimerFunc</strong>
+				use to delay the time in milliseconds for each redrawing. In this example minute hand redraw after 300ms 
+				and hour hand redraw after 300*5 milliseconds.
+				<strong>rotateLine</strong> method use to increase the angle  of minute and hour hand
+				after each time interval in clockwise.</p>
+				<p>The gif file at the top of this article is the result I got after executing this code.
+				 Enjoy the OpenGL !!...</p>
+					<pre class="article-code"><code>
+
+	#include&lt;gl\glut.h&gt;
+	#include&lt;gl\GL.h&gt;
+	#include&lt;math.h&gt;
 	
 	float mm = 0.0; // minutes angle
 	float hh = 0.0; // hours angle
 	float m5 = 0.0; // calculate 5mins
 	float degree_6 = 2.0f * 3.1415926f / float(60); // value for degree 6 = 360/60
-	float r = 0.9; //radius of the circle
-	
-	void DrawCircle(float cx, float cy, float r, int num_segments) {{ '{' }}
+	float r = 0.9; //radius of the circle	
 
-	    glBegin(GL_LINE_LOOP);
-	    glColor3f(1.0,1.0,1.0);
+	void rotateLine(int value) {{ '{' }}
 	
-	    for (int ii = 0; ii &lt; num_segments; ii++)   {{ '{' }}
+		// Minutes
+		mm += 1;
+		if(mm &gt; 60) {{ '{' }} // circle divide into 60 parts
+			mm = 0.0;
+		{{ '}' }}
 	
-	        float angle = 2.0f * 3.1415926f * float(ii) / float(num_segments);
-	        float x = r * cosf(angle);
-	        float y = r * sinf(angle);
-	        glVertex2f(x + cx, y + cy);
-	    {{ '}' }}
-	    glEnd();
-	{{ '}' }}
-	
-void drawHourMarks(float cx, float cy, float r) {{ '{' }}
-
-	glBegin(GL_LINES);
-	glColor3f(0.0,0.0,1.0);
-	for (int ii = 0; ii &lt; 12; ii++)   {{ '{' }}
-
-		float angle = degree_6 * float(ii) * 5 ;
-		float x = 0.8 * cosf(angle);
-		float y = 0.8 * sinf(angle);
-		glVertex2d(cx + x, cy + y);
-		x = r * cosf(angle);
-		y = r * sinf(angle);
-		glVertex2d(cx + x, cy + y);
+		//Hours
+		m5 += 1;
+		if(m5 &gt; 300) {{ '{' }} // hour hand moves for every 5mins = 60 moves * 5 rounds = 300
+			hh += 1;
+			m5 = 0.0;
+		{{ '}' }}
+		
+		if(hh &gt; 12) {{ '{' }} // circle divide into 60 parts
+			hh = 0.0;
+		{{ '}' }}
+		
+		glutPostRedisplay();
 	{{ '}' }}
 
-	glEnd();
-{{ '}' }}
 
-void drawMinuteMarks(float cx, float cy) {{ '{' }}
-
-	glBegin(GL_LINES);
-	glColor3f(1.0,1.0,1.0);
-
-	for (int ii = 0; ii &lt; 60; ii++)   {{ '{' }}
-
-		float angle = degree_6 * float(ii);
-		float x = 0.85 * cosf(angle);
-		float y = 0.85 * sinf(angle);
-		glVertex2d(cx + x, cy + y);
-		x = 0.9 * cosf(angle);
-		y = 0.9 * sinf(angle);
-		glVertex2d(cx + x, cy + y);
-	{{ '}' }}
-
-	glEnd();
-{{ '}' }}
-
-void drawHourHand(int ii) {{ '{' }}
-
-	glBegin(GL_TRIANGLES);
-	glColor3f(0,0,1); // Blue
-
-	float angle = degree_6 * float(ii) * 5;
-	float angle1 = angle;
-	float x1 = 0.7 * cosf(angle1);
-	float y1 = 0.7 * sinf(angle1);
-	glVertex2f( x1, -y1 );
-
-	float angle2 = angle + 90;
-	float x2 = 0.03 * cosf(angle2);
-	float y2 = 0.03 * sinf(angle2);
-	glVertex2f( x2, -y2 );
-
-	float angle3 = angle - 90;
-	float x3 = 0.03 * cosf(angle3);
-	float y3 = 0.03 * sinf(angle3);
-	glVertex2f( x3, -y3 );
-
-	glEnd();
-
-{{ '}' }}
-
-void drawMinuteHand(int ii) {{ '{' }}
-
-	glBegin(GL_TRIANGLES);
-	glColor3f(0,1,1); //Green
-
-	float angle = degree_6 * float(ii);
-	float angle1 = angle;
-	float x1 = 0.8 * cosf(angle1);
-	float y1 = 0.8 * sinf(angle1);
-	glVertex2f( x1, -y1 );
-
-	float angle2 = angle + 90;
-	float x2 = 0.03 * cosf(angle2);
-	float y2 = 0.03 * sinf(angle2);
-	glVertex2f( x2, -y2 );
-
-	float angle3 = angle - 90;
-	float x3 = 0.03 * cosf(angle3);
-	float y3 = 0.03 * sinf(angle3);
-	glVertex2f( x3, -y3 );
-
-	glEnd();
-
-{{ '}' }}
-
-void rotateLine(int value) {{ '{' }}
-
-	// Minutes
-	mm += 1;
-	if(mm &gt; 60) {{ '{' }} // circle divide into 60 parts
-		mm = 0.0;
-	{{ '}' }}
-
-	//Hours
-	m5 += 1;
-	if(m5 &gt; 300) {{ '{' }} // hour hand moves for every 5mins = 60 moves * 5 rounds = 300
-		hh += 1;
-		m5 = 0.0;
-	{{ '}' }}
-	glutPostRedisplay();
-{{ '}' }}
-
-
- void display()
-{{ '{' }}
-    glClear(GL_COLOR_BUFFER_BIT);
-
-	// clock
-	DrawCircle(0, 0, r, 200);
-	drawMinuteMarks(0, 0);
-	drawHourMarks(0, 0, r);
-
-	// hand moving
-	drawMinuteHand(mm); // Minutes hand
-	drawHourHand(hh); // Hours hand
-
-//	glutTimerFunc(60000, rotateLine, 10); // calculate for every 1 minute as question
-	glutTimerFunc(300, rotateLine, 10); // calculate for every 300 ms for testing
-
-    glutSwapBuffers();
-{{ '}' }}
-
-
- int main(int agrs, char **args) {{ '{' }}
-
-	glutInit(&agrs, args);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	glutInitWindowSize(650, 650);
-    glutInitWindowPosition(0, 0);
-    glutCreateWindow("SC539 Assignment 07 CSC2027");
-	glClearColor(0, 0, 0, 0);
-
-	glutDisplayFunc(display);
-
-	glutMainLoop();
-	return 0;
-{{ '}' }}
+	 void display()
+	{{ '{' }}
+	    glClear(GL_COLOR_BUFFER_BIT);
 	
-
+		// clock
+		DrawCircle(0, 0, r, 200);
+		drawMinuteMarks(0, 0);
+		drawHourMarks(0, 0, r);
+	
+		// hand moving
+		drawMinuteHand(mm); // Minutes hand
+		drawHourHand(hh); // Hours hand
+	
+	//	glutTimerFunc(60000, rotateLine, 10); // calculate for every 1 minute 
+		glutTimerFunc(300, rotateLine, 10); // calculate for every 300 ms for testing
+	
+	    glutSwapBuffers();
+	{{ '}' }}
 
           		 </code></pre>
-					<img src="/assets/img/articles/clock.gif"  alt="OpenGL clock" width="40%" >
+					
 				</div>
 			</div>
 		</div>
